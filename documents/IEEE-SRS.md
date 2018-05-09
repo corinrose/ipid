@@ -1,10 +1,10 @@
 # Software Requirements Specification
-# For  `<project name>`
+# For  `IPID`
 Version `<version>`
 Prepared by
-`<author>`
-`<organization>`
-`<date created>`
+`Ian Leinbach, Corin Rose`
+`Vassar College`
+`9 May 2018`
 
 # Revision History
 | Name  | Date    | Reason For Changes  | Version   |
@@ -45,7 +45,7 @@ This subsection should
 This information may be provided by reference to an appendix or to another document.
 
 
-## 1.5 OVerview
+## 1.5 Overview
 
 This subsection should
 
