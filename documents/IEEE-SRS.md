@@ -11,7 +11,7 @@ on
 # Revision History
 | Name  | Date    | Reason For Changes  | Version   |
 | ----  | ------- | ------------------- | --------- |
-|  Sameer Pradhan &nbsp; | May 2, 2018 &nbsp;| Initial version derived from the  &nbsp; | &nbsp; 0.1 |
+|  Ian Leinbach, Corin Rose &nbsp; | May 9, 2018 &nbsp;| Initial version derived from the  &nbsp; | &nbsp; 0.1 |
 | |                        | IEEE Std. 830 (1998) &nbsp;              |  |
 
 <div class="padding"></div>
