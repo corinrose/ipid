@@ -1,6 +1,6 @@
 # Software Requirements Specification
 # For  `IPID`
-Version `<version>`
+Version `0.1`
 Prepared by
 `Ian Leinbach, Corin Rose`
 at
