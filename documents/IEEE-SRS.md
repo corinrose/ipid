@@ -3,7 +3,9 @@
 Version `<version>`
 Prepared by
 `Ian Leinbach, Corin Rose`
+at
 `Vassar College`
+on
 `9 May 2018`
 
 # Revision History
