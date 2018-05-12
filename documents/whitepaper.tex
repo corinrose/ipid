@@ -21,16 +21,20 @@ In IPID, an ID is simply a a folder of data hosted on IPFS which contains your d
 
 \subsection{Profile}
 
-\begin{center}
+\begin{figure}[h]
+  \centering
   \includegraphics[width=.5\textwidth]{resources/basic_profile.png}
-\end{center}
+  \caption{A minimal profile.}
+\end{figure}
 
-Here we see the most basic profile you can have. It consists of a "name," an "email," and a ".id" file. The name and email are both just plain text files with the name and email respectively. The name does not have to be a real name, it can be psuedononymous. The .id file contains the IPNS name of this profile, and acts as a flag that this folder is in fact an IPID folder. An ID needs to have at minimum a name and some kind of contact information, like email or phone. \par
-Profiles can also include payment information in a "wallet" folder. For example, if you wish to post a Bitcoin recieving address to your profile, you can create "wallet/btc," a text file that contains your BTC address.
+We see in figure 1 an example of the most basic profile you can have. It consists of a "name," an "email," and a ".id" file. The name and email are both just plain text files with the name and email respectively. The name does not have to be a real name, it can be psuedononymous. The .id file contains the IPNS name of this profile, and acts as a flag that this folder is in fact an IPID folder. An ID needs to have at minimum a name and some kind of contact information, like email or phone. \par
+Profiles can also include payment information in a "wallet" folder. For example, if you wish to post a Bitcoin recieving address to your profile, you can create "wallet/btc," a text file that contains your BTC address. See figure 2.
 
-\begin{center}
+\begin{figure}[h]
+  \centering
   \includegraphics[width=.5\textwidth]{resources/basic_profile_wallet.png}
-\end{center}
+  \caption{A profile with a Bitcoin recieving address.}
+\end{figure}
 
 \subsection{Extensions}
 
@@ -42,19 +46,24 @@ Going further, a social media site or game could create a folder within one's da
 
 We can easily host this folder on IPFS.
 
-\begin{center}
+\begin{figure}[h]
+  \centering
   \includegraphics[width=.9\textwidth]{resources/profile_to_ipfs.png}
-\end{center}
+  \caption{Adding your IPID folder to IPFS..}
+\end{figure}
 
 Now, our IPID folder is can be accessed from anywhere at \\
-  /ipfs/QmccocgPHdbCWCdU33y1KceoB8KMsAMUtS1i7jSPS1qitc. Exciting! 
+  \texttt{/ipfs/QmccocgPHdbCWCdU33y1KceoB8KMsAMUtS1i7jSPS1qitc}. Exciting! 
 This is not ideal, however, because now you must send a new IPFS link every time you update this information. Luckly, IPFS let's use name content! 
 
-\begin{center}
-  \includegraphics[width=1.2\textwidth]{resources/publish_profile.png}
-\end{center}
+\begin{figure}[h]
+  \hspace*{-2cm}
+  \centering
+  \includegraphics[width=.75\paperwidth]{resources/publish_profile.png}
+  \caption{Publishing your IPID folder to your IPNS name.}
+\end{figure}
 
-Now, you can share /ipns/Qmdcfpikbfm3pBaSLPqaDmRpbDRDT12jm19HgxSkM7Ez1X with anyone and they will be able to find your up to date data over IPFS!
+Now, you can share \texttt{/ipns/Qmdcfpikbfm3pBaSLPqaDmRpbDRDT12jm19HgxSkM7Ez1X} with anyone and they will be able to find your up to date data over IPFS!
 
 
 
