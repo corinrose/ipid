@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{graphicx}
 
 \author{Ian Leinbach and Corin Rose}
 \title{Inter-Planetary ID}
@@ -17,9 +18,52 @@ A universally agreed upon format for defining what data constitutes an ID would 
 
 \section{Format}
 
+In IPID, an ID is simply a a folder of data hosted on IPFS which contains your data footprint--that is, all of the data you want to be associated with your public Internet identity, from contact info to published writing. We share this data by assigning an IPNS link to this data, which you can then give to people out of band (e.g. on a buisness card, or via a text). Then, you can update the IPFS folder pointed to by this name whenever you update your data, and anyone can always access this data with that same IPNS name. 
+
 \subsection{Profile}
 
+\begin{center}
+  \includegraphics[width=.5\textwidth]{resources/basic_profile.png}
+\end{center}
+
+Here we see the most basic profile you can have. It consists of a "name," an "email," and a ".id" file. The name and email are both just plain text files with the name and email respectively. The name does not have to be a real name, it can be psuedononymous. The .id file contains the IPNS name of this profile, and acts as a flag that this folder is in fact an IPID folder. An ID needs to have at minimum a name and some kind of contact information, like email or phone. \par
+Profiles can also include payment information in a "wallet" folder. For example, if you wish to post a Bitcoin recieving address to your profile, you can create "wallet/btc," a text file that contains your BTC address.
+
+\begin{center}
+  \includegraphics[width=.5\textwidth]{resources/basic_profile_wallet.png}
+\end{center}
+
 \subsection{Extensions}
+
+We can easily define extensions to this format. A simple example is the wallet folder we saw above. Similarly, we could create a "blog" folder which contains a bunch of text files, each of which is a blog post. Then, anyone could write code that found this profile, looked through all of these posts, and formatted them nicely as a blog. \par
+Organizations could also define their own extension paths to any depth. For example, if Vassar College wanted to integrate their data about me into my profile, they could create a "vassar" folder to add to the root folder, which would then include for example a student\_id file, and a transcript file, and so on. This third party format could also include subfolders. \\
+Going further, a social media site or game could create a folder within one's data footprint to store data, leaving the user in control of their data. 
+
+\section{IPFS}
+
+We can easily host this folder on IPFS.
+
+\begin{center}
+  \includegraphics[width=.9\textwidth]{resources/profile_to_ipfs.png}
+\end{center}
+
+Now, our IPID folder is can be accessed from anywhere at \\
+  /ipfs/QmccocgPHdbCWCdU33y1KceoB8KMsAMUtS1i7jSPS1qitc. Exciting! 
+This is not ideal, however, because now you must send a new IPFS link every time you update this information. Luckly, IPFS let's use name content! 
+
+\begin{center}
+  \includegraphics[width=1.2\textwidth]{resources/publish_profile.png}
+\end{center}
+
+Now, you can share /ipns/Qmdcfpikbfm3pBaSLPqaDmRpbDRDT12jm19HgxSkM7Ez1X with anyone and they will be able to find your up to date data over IPFS!
+
+
+
+\section{Use Cases}
+
+\subsection{Business Card}
+
+\subsection{}
 
 \section{Reference Implementation}
 
