@@ -1,102 +1,117 @@
 body {
-  margin: 0px;
-  background-image: url("resources/dots.png");
-  background-repeat: repeat;
+  height: 100%;
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
   font-family: 'Fira Mono', monospace;
   text-align: center;
 }
 
-#nav {
-  background-color: #202729;
-  color: #fff;
-  width: 400px;
-  margin: auto;
-  left: 0;
-  right: 0;
-  padding: 10px;
-  text-align: center;
-  border-radius: 0px 0px 5px 5px; 
+body > * {
+  display: table;
 }
 
-#nav li {
-  display: inline;
-  padding: 10px;
+section {
+  background-color: white;
+  background-image: url("resources/dots.png");
+  height: 100vh;
+  width: 100%;
 }
+
+section > * {
+  display: inline-block;
+}
+
 
 a {
   color: #fff;
   text-decoration: none;
 }
 
-h1 {
-  font-size: 64px;
-  color: #202729;
-  margin-top: 200px;
+#nav {
+  overflow: hidden;
+  white-space: nowrap;
+
+  padding: 0;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background-color: #000;
+  border-radius: 0px 0px 5px 5px;
+
+  color: #fff;
+  text-align: center;
+  font-size: 0; /* inline-block spacing workaround */
 }
 
-section {
-  height: 100vh;
+#nav a {
+  display: inline-block;
+  padding: 10px 15px 10px 15px;
+  font-size: medium; /* inline-block spacing workaround */
+}
+
+#nav a:hover {
+  background-color: #202729;
+}
+
+#title {
+  margin: 25vh 0 5vh 0;
+
+  color: #000;
+  font-size: 8em;
 }
 
 #tagline {
-  text-align: center;
-  margin: auto;
-  left: 0;
-  right: 0;
-  width: 800px;
-  padding: 10px 0px 10px 0px;
-  background-color: #202729;
-  color: #fff;
+  padding: 10px 15px 10px 15px;
+  margin: 0 2vh 5vh 5vh;
+
+  background-color: #000;
   border-radius: 5px;
-}
 
-#createprofile {
-  margin: auto;
-  left: 0;
-  right: 0;
-  margin-top: 20px;
-  color: #202729;
-  background-color: #fff;
-  padding: 10px;
-  border-style: solid;
-  border-color: #202729;
-}
-
-#createprofile:hover {
   color: #fff;
-  background-color: #202729; 
+  text-align: center;
+}
+
+#totop {
+  position: fixed;
+  width: 100px;
+
+  top: 20px;
+  left: 20px;
+}
+
+.button {
+  padding: 10px;
+
+  background-color: #fff;
+  border: medium solid #000;
+
+  color: #000;
+  text-align: center;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.block {
+  display: inline-block;
+  min-width: 200px;
+  min-height: 100px;
+
+  margin: 5% 5% 0 5%;
+
+  background-color: #000;
+  color: #fff;
+
+  text-align: center;
 }
 
 .dark {
   background-image: url("resources/negativedots.png");
 }
-
-.block {
-  background-color: #202729;
-  width: 300px;
-  height: 300px;
-  color: white;
-  float: left;
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-top: 25vh;
-}
-
-.dark.desc.block {
-  background-color: #202729;
-  color: white;
-}
-
-.desc {
-  width: 80%;
-  margin: auto;
-  left: 0;
-  right: 0;
-}
-
-
-#how {
-  text-align: center;
-}
-
-
