@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{graphicx}
+\usepackage[hyphens]{url}
 
 \author{Ian Leinbach and Corin Rose}
 \title{Inter-Planetary ID}
@@ -18,6 +19,10 @@ A universally agreed upon format for defining what data constitutes an ID would 
 In IPID, an ID is simply a a folder of data hosted on IPFS which contains your data footprint--that is, all of the data you want to be associated with your public Internet identity, from contact info to published writing. We share this data by assigning an IPNS link to this data, which you can then give to people out of band (e.g. on a buisness card, or via a text). Then, you can update the IPFS folder pointed to by this name whenever you update your data, and anyone can always access this data with that same IPNS name. 
 
 \section{Format}
+
+\subsection{Data Serialization}
+
+In an IPID folder, data should be future proof and self-describing in the sense of Multiformats.\footnote{\url{https://multiformats.io/}} Multiformats let us encode data in a consistent way, prefacing it with metadata about its content, and includes both a human-readable and binary representation. For example we can reference \texttt{foo.jpg}, a file stored on our own local machine over http on port 8000, by \texttt{/ip4/127.0.0.1/tcp/8000/http\-/foo.jpg}. This human-readable format can translated into a binary format with a lookup table for values of each protocol. Many types of content already do something like this, for example by declaring \texttt{<DOCTYPE! html>} in an HTML document. Any file in an IPID folder should make clear the way it is storing data.   
 
 \subsection{Profile}
 
@@ -42,14 +47,14 @@ We can easily define extensions to this format. A simple example is the wallet f
 Organizations could also define their own extension paths to any depth. For example, if Vassar College wanted to integrate their data about me into my profile, they could create a "vassar" folder to add to the root folder, which would then include for example a student\_id file, and a transcript file, and so on. This third party format could also include subfolders. \\
 Going further, a social media site or game could create a folder within one's data footprint to store data, leaving the user in control of their data. 
 
-\section{IPFS}
+\subsection{IPFS}
 
 We can easily host this folder on IPFS.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=.9\textwidth]{resources/profile_to_ipfs.png}
-  \caption{Adding your IPID folder to IPFS..}
+  \caption{Adding your IPID folder to IPFS.}
 \end{figure}
 
 Now, our IPID folder is can be accessed from anywhere at \\
@@ -71,7 +76,13 @@ Now, you can share \texttt{/ipns/Qmdcfpikbfm3pBaSLPqaDmRpbDRDT12jm19HgxSkM7Ez1X}
 
 \subsection{Business Card}
 
-\subsection{}
+One way to use this data footprint is to share it on a business card. This card can include a small QR code that encodes the IPNS path to the folder with your data. You can give out this business card to as many people as you'd like, and they will always be able to view your most up to date public data. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics{resources/business_card.png}
+  \caption{An example of a business card with a QR code that links to an ID over IPNS.}
+\end{figure}
 
 \section{Reference Implementation}
 
