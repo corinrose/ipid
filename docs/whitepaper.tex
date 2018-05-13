@@ -32,8 +32,8 @@ In an IPID folder, data should be future proof and self-describing in the sense 
   \caption{A minimal profile.}
 \end{figure}
 
-We see in figure 1 an example of the most basic profile you can have. It consists of a "name," an "email," and a ".id" file. The name and email are both just plain text files with the name and email respectively. The name does not have to be a real name, it can be psuedononymous. The .id file contains the IPNS name of this profile, and acts as a flag that this folder is in fact an IPID folder. An ID needs to have at minimum a name and some kind of contact information, like email or phone. \par
-Profiles can also include payment information in a "wallet" folder. For example, if you wish to post a Bitcoin recieving address to your profile, you can create "wallet/btc," a text file that contains your BTC address. See figure 2.
+We see in figure 1 an example of the most basic profile you can have. It consists of a "name," an "email," and a ".id" file. The name and email are both just plain text files with the name and email respectively. In this context, the names of the files act as sufficient metadata to describe the content. The name does not have to be a real name, it can be psuedononymous. The .id file contains a version field and the IPNS name of the given profile. It acts as a flag that this folder is in fact an IPID folder. An ID needs to have at minimum a name and some kind of contact information, like email or phone, in addition to the .id file. \par
+Profiles can also include payment information in a "wallet" folder. For example, if you wish to post a Bitcoin recieving address to your profile, you can create "wallet/btc," a text file that contains your BTC address. See figure 2. We can similarly extend this model to include any kind of data.
 
 \begin{figure}[h]
   \centering
@@ -43,13 +43,17 @@ Profiles can also include payment information in a "wallet" folder. For example,
 
 \subsection{Extensions}
 
-We can easily define extensions to this format. A simple example is the wallet folder we saw above. Similarly, we could create a "blog" folder which contains a bunch of text files, each of which is a blog post. Then, anyone could write code that found this profile, looked through all of these posts, and formatted them nicely as a blog. \par
+We can easily define extensions to this format. A simple example is the wallet folder we saw above. Similarly, we could create a "blog" folder which contains a bunch of text files, each of which is a new blog post. Then, anyone could write code that found this profile, looked through all of these posts, and formatted them nicely as a blog. One could easily use this as a decentralized content management system for their own websites, or someone could offer a service that read blog data from a given profile over IPFS and formatted it into a profile resembling modern social media websites. \par
 Organizations could also define their own extension paths to any depth. For example, if Vassar College wanted to integrate their data about me into my profile, they could create a "vassar" folder to add to the root folder, which would then include for example a student\_id file, and a transcript file, and so on. This third party format could also include subfolders. \\
-Going further, a social media site or game could create a folder within one's data footprint to store data, leaving the user in control of their data. 
+Going further, a social media site or game could create a folder within one's data footprint to store data, leaving the user in control of their data. When someone wants to add to or change your content, they must go through you first. We enable secure content management through IPFS.
 
 \subsection{IPFS}
 
-We can easily host this folder on IPFS.
+The Inter-Planetary Filesystem is a new Web. It addresses two of the flaws of HTTP: the World Wide Web uses location-based addressing, and operates within a client-server model. These two factors have been a centralizing force on the Web, enabling big corporations like Facebok, Google, Microsoft, and Apple to dominate the industry. These corporations offer identity services more complete than IPID, but they depend on centralized security models, where trusted institutions take responsibility for our data. We see time and time again that this model for security does not work in the decentralized world of the Internet. Attacks on a network can come from anywhere, and if there is a central point of failure it is bound to be targeted. IPFS takes inspiration from decentralized technologies like Git, BitTorrent, and Blockchains to address these problems with the Web. With IPFS, we now use content-based addressing, so we can look for a file and download it BitTorrent style from everyone who has. This also builds in data integrity checks. IPFS uses a Distributed Hash Table to build a global routing table, storing which node stores what data. With this technology, we can take IPFS to be the new Web, and describe IPID as a standard sitting above IPFS.
+
+\subsection{Hosting on IPFS}
+
+We can easily host our IPID folder on IPFS.
 
 \begin{figure}[h]
   \centering
@@ -57,9 +61,16 @@ We can easily host this folder on IPFS.
   \caption{Adding your IPID folder to IPFS.}
 \end{figure}
 
-Now, our IPID folder is can be accessed from anywhere at \\
-  \texttt{/ipfs/QmccocgPHdbCWCdU33y1KceoB8KMsAMUtS1i7jSPS1qitc}. Exciting! 
+Once we add this folder with our IPID data to IPFS, as seen in figure 3, it can be accessed from anywhere at \\
+  \texttt{/ipfs/QmccocgPHdbCWCdU33y1KceoB8KMsAMUtS1i7jSPS1qitc} \\ 
+For example, to find the Bitcoin address, we can look for \\
+  \texttt{/ipfs/QmccocgPHdbCWCdU33y1KceoB8KMsAMUtS1i7jSPS1qitc/wallet/btc} 
+and read what we know will be the hash of a Elliptic Curve public key.  
 This is not ideal, however, because now you must send a new IPFS link every time you update this information. Luckly, IPFS let's use name content! 
+
+\subsection{IPNS}
+
+IPNS provides us a PKI global namespace for addressing, and a way to resolve these addresses over IPFS. We can thus generate an IPNS name by hashing a public key. IPFS typically uses RSA. This functionality is conveniently built into the reference implementation of IPFS. 
 
 \begin{figure}[h]
   \hspace*{-2cm}
