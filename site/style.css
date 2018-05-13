@@ -1,3 +1,6 @@
+/* GLOBAL STYLING
+/******************************************************************************/
+
 body {
   height: 100%;
   width: 100%;
@@ -6,82 +9,12 @@ body {
   padding: 0;
 
   font-family: 'Fira Mono', monospace;
-  text-align: center;
 }
-
-body > * {
-  display: table;
-}
-
-section {
-  background-color: white;
-  background-image: url("resources/dots.png");
-  height: 100vh;
-  width: 100%;
-}
-
-section > * {
-  display: inline-block;
-}
-
 
 a {
+  /* we are the future; blue/underlined links are the past */
   color: #fff;
   text-decoration: none;
-}
-
-#nav {
-  overflow: hidden;
-  white-space: nowrap;
-
-  padding: 0;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  background-color: #000;
-  border-radius: 0px 0px 5px 5px;
-
-  color: #fff;
-  text-align: center;
-  font-size: 0; /* inline-block spacing workaround */
-}
-
-#nav a {
-  display: inline-block;
-  padding: 10px 15px 10px 15px;
-  font-size: medium; /* inline-block spacing workaround */
-}
-
-#nav a:hover {
-  background-color: #202729;
-}
-
-#title {
-  margin: 25vh 0 5vh 0;
-
-  color: #000;
-  font-size: 8em;
-}
-
-#tagline {
-  padding: 10px 15px 10px 15px;
-  margin: 0 2vh 5vh 5vh;
-
-  background-color: #000;
-  border-radius: 5px;
-
-  color: #fff;
-  text-align: center;
-}
-
-#totop {
-  position: fixed;
-  width: 100px;
-
-  top: 20px;
-  left: 20px;
 }
 
 .button {
@@ -99,19 +32,131 @@ a {
   background-color: #000;
 }
 
-.block {
-  display: inline-block;
-  min-width: 200px;
-  min-height: 100px;
+.button#totop {
+  position: fixed;
+  min-width: 32px;
+  width: 5vw;
 
-  margin: 5% 5% 0 5%;
+  /* put totop above everything */
+  z-index: 1000;
+
+  margin: 0;
+  top: 20px;
+  left: 20px;
+}
+
+/* STRUCTURE
+/******************************************************************************/
+
+/* section                  = table      *
+ * section .column          = table-cell *
+ * section .column .content = block      */
+
+section {
+  display: table;
+  height: 100vh;
+  width: 100%;
+
+  /* pad without increasing size of section */
+  box-sizing: border-box;
+  padding: 0 32px 0 32px;
+
+  /* dots have transparency; set background color explicitly */
+  background-image: url("resources/dots.png");
+  background-color: white;
+  color: #000;
+}
+
+/* every other section is .dark */
+section.dark {
+  background-image: url("resources/negativedots.png");
+  color: #fff;
+}
+
+/* DESCENDENTS OF #landing
+/******************************************************************************/
+
+/* section#landing deviates from section structure */
+section#landing > * {
+  display: table;
+
+  /* center children of #landing; children specify size */
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+section#landing #nav {
+  /* prevent children's backgrounds from overriding border-radius */
+  overflow: hidden;
 
   background-color: #000;
-  color: #fff;
+  border-radius: 0px 0px 5px 5px;
 
+  white-space: nowrap; /* ensure nav bar is always on one line */
+  color: #fff;
+}
+
+section#landing #nav a {
+  display: table-cell;
+  padding: 10px 15px 10px 15px;
+}
+
+section#landing #nav a:hover {
+  background-color: #202729;
+}
+
+section#landing #maintitle {
+  margin-top: 25vh;
+
+  color: #000;
+  font-size: 8em;
+}
+
+section#landing #tagline {
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  padding: 10px 15px 10px 15px;
+
+  background-color: #000;
+  border-radius: 5px;
+
+  color: #fff;
   text-align: center;
 }
 
-.dark {
-  background-image: url("resources/negativedots.png");
+/* .column
+/******************************************************************************/
+
+section .column {
+  display: table-cell;
+  min-width: 400px;
+  max-width: 0;
+  min-height: 100px;
+
+  text-align: center;
+  vertical-align: top;
+}
+
+/* DESCENDENTS OF .column
+/******************************************************************************/
+
+section .column .content {
+  width: 80%;
+
+  margin: auto;
+  left: 0;
+  right: 0;
+  margin-top: 4%;
+
+  padding: 2% 1% 2% 1%;
+
+  background-color: #000;
+  border-radius: 10px 10px 10px 10px;
+  color: #fff;
+}
+
+section .column .content .columntitle {
+  font-size: 2em;
+  margin-bottom: 5vh;
 }
