@@ -22,7 +22,7 @@ In IPID, an ID is simply a a folder of data hosted on IPFS which contains your d
 
 \subsection{Data Serialization}
 
-In an IPID folder, data should be future proof and self-describing in the sense of Multiformats.\footnote{\url{https://multiformats.io/}} Multiformats let us encode data in a consistent way, prefacing it with metadata about its content, and includes both a human-readable and binary representation. For example we can reference \texttt{foo.jpg}, a file stored on our own local machine over http on port 8000, by \texttt{/ip4/127.0.0.1/tcp/8000/http\-/foo.jpg}. This human-readable format can translated into a binary format with a lookup table for values of each protocol. Many types of content already do something like this, for example by declaring \texttt{<DOCTYPE! html>} in an HTML document. Any file in an IPID folder should make clear the way it is storing data.   
+In an IPID folder, data should be future proof and self-describing in the sense of Multiformats.\footnote{\url{https://multiformats.io/}} Multiformats let us encode data in a consistent way, prefacing it with metadata about its content, and includes both a human-readable and binary representation. For example we can reference \texttt{foo.jpg}, a file stored on our own local machine over http on port 8000, by \texttt{/ip4/127.0.0.1/tcp/8000/http\-/foo.jpg}. This human-readable format can translated into a binary format with a lookup table for values of each protocol. Many types of content already do something like this, for example by declaring \texttt{<!DOCTYPE html>} in an HTML document. Any file in an IPID folder should make clear the way it is storing data.   
 
 \subsection{Profile}
 
