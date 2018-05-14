@@ -82,8 +82,6 @@ section#landing > * {
 
   /* center children of #landing; children specify size */
   margin: auto;
-  left: 0;
-  right: 0;
 }
 
 section#landing #nav {
