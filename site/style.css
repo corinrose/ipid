@@ -130,9 +130,11 @@ section#landing #tagline {
 
 section .column {
   display: table-cell;
-  min-width: 400px;
   max-width: 0;
   min-height: 100px;
+
+  padding-bottom: 4%;
+  padding-top: 4%;
 
   text-align: center;
   vertical-align: top;
@@ -156,7 +158,11 @@ section .column .content {
   color: #fff;
 }
 
+section .column:first-child {
+  margin-top: 0;
+}
+
 section .column .content .columntitle {
   font-size: 2em;
-  margin-bottom: 5vh;
+  margin-bottom: 5%;
 }
