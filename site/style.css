@@ -146,11 +146,7 @@ section .column {
 section .column .content {
   width: 80%;
 
-  margin: auto;
-  left: 0;
-  right: 0;
-  margin-top: 4%;
-
+  margin: 4% auto 0;
   padding: 2% 1% 2% 1%;
 
   background-color: #000;
