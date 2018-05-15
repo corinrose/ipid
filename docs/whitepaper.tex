@@ -81,8 +81,6 @@ IPNS provides us a PKI global namespace for addressing, and a way to resolve the
 
 Now, you can share \texttt{/ipns/Qmdcfpikbfm3pBaSLPqaDmRpbDRDT12jm19HgxSkM7Ez1X} with anyone and they will be able to find your up to date data over IPFS!
 
-
-
 \section{Use Cases}
 
 \subsection{Business Card}
@@ -95,11 +93,31 @@ One way to use this data footprint is to share it on a business card. This card 
   \caption{An example of a business card with a QR code that links to an ID over IPNS.}
 \end{figure}
 
+\section{Security}
+ 
+This technology will act as a layer above IPFS. Thus, the first question we must ask is what security guarentees does IPFS give us. The structure of IPFS, a merkle DAG, is inherently invulnreable to data manipulation--that is, it guarentees data integrity, so if I give you a IPFS link in the form of a content hash, you know that the data you receive is what I intended to send. IPNS is built to be interoperable and run on many different asymmetric cryptography schemes, but uses industry standard RSA by default. This is of course depend on the hardness of factoring primes, which Quantum Computers will be able to break with Shor's algorithm once we figure out that whole decoherence thing, at which point IPFS will have no issue transitioning to a new key system--although this would require users to update their IPNS names. Although our format does not include specifications for encrypted data, one could easily encrypt data themselves and put it on IPFS, only sharing the keys with those they would like, or adopt whatever scheme they wish. Encryption will eventually be built into IPFS at the protocol layer, making this even easier. 
+
 \section{Reference Implementation}
+
+We will develop a reference implementation of this format which aims to be a Minimum Viable Product (MVP), demonstrating the core functionality of IPID without investigating creative uses of the protocol. With this in mind, the reference implementation will aim to work like a traditional blogging website. It will allow users to create and manage their IPID, and look at a nicely formatted version of other users IPIDs. 
+
+\subsection{Client-Side IPFS Node}
+
+We will utilize the js-IPFS in-browser IPFS node to let the user interact with IPFS themselves, from our website. This API can interact with a node running on the computer, or with the IPFS Companion, a cross-platform browser extension that runs a Javascript IPFS node in your browser.\footnote{\url{https://github.com/ipfs-shipyard/ipfs-companion}} We will encourage average users to opt for the browser extension. The home page will detect whether the user is running an IPFS node on their computer with this API. If they are and the node's name links to a folder with a .id file, the site will detect this and automatically "log-in" the user--that is, display a view profile button rather than a create profile button, options to edit your profile from our site, and so on. If there is a node running but no ID on it, the site will allow the user to create a profile 
+
+\subsection{SQLite Database}
+
+The site will include a SQLite database which stores data about users who create an ID through the site. We will also "mirror" all of the users ID data on our own IPFS node. Users can then search on our site for other users with any data. If it is an IPNS name, the site can check if it is in the database, and if not make a request over IPFS for the files. If users are in our database, however, the search features are much more extensive, and they can search by anything that would be in the profile. 
 
 \subsection{Blog Extension}
 
-\subsection{Profile Mirroring}
+This web site would utilize the blog extension mentioned above. This is simply a folder within one's IPID named blog, which contains some files. These files can be any kind of markup format, as long as they are self describing. For example, one can use simply name their blog posts with an extension marking its type. There is no need to make all of the files the same type, as seen in figure 6. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\linewidth]{resources/blog_example.png}
+  \caption{An example of a blog with a few posts.}
+\end{figure}
 
 \section{Conclusion}
 
