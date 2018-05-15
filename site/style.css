@@ -21,15 +21,15 @@ a {
   padding: 10px;
 
   background-color: #fff;
-  border: medium solid #000;
+  border: medium solid #202729;
 
-  color: #000;
+  color: #202729;
   text-align: center;
 }
 
 .button:hover {
   color: #fff;
-  background-color: #000;
+  background-color: #202729;
 }
 
 .button#totop {
@@ -63,7 +63,7 @@ section {
 
   /* dots have transparency; set background color explicitly */
   background-image: url("resources/dots.png");
-  background-color: white;
+  background-color: #f7f7f7;
   color: #000;
 }
 
@@ -88,7 +88,7 @@ section#landing #nav {
   /* prevent children's backgrounds from overriding border-radius */
   overflow: hidden;
 
-  background-color: #000;
+  background-color: #202729;
   border-radius: 0px 0px 5px 5px;
 
   white-space: nowrap; /* ensure nav bar is always on one line */
@@ -101,13 +101,13 @@ section#landing #nav a {
 }
 
 section#landing #nav a:hover {
-  background-color: #202729;
+  background-color: #000;
 }
 
 section#landing #maintitle {
   margin-top: 25vh;
 
-  color: #000;
+  color: #202729;
   font-size: 8em;
 }
 
@@ -116,7 +116,7 @@ section#landing #tagline {
   margin-bottom: 3vh;
   padding: 10px 15px 10px 15px;
 
-  background-color: #000;
+  background-color: #202729;
   border-radius: 5px;
 
   color: #fff;
@@ -148,10 +148,15 @@ section .column .content {
   box-sizing: border-box;
   padding: 5% 10% 5% 10%;
 
-  background-color: #000;
   border-radius: 10px 10px 10px 10px;
+  background-color: #202729;
   text-align: justify;
-  color: #fff;
+  color: #f7f7f7;
+}
+
+section.dark .column .content {
+  background-color: #f7f7f7;
+  color: #202729;
 }
 
 section .column:first-child {
