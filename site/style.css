@@ -145,10 +145,12 @@ section .column .content {
   width: 80%;
 
   margin: 4% auto 0;
-  padding: 2% 1% 2% 1%;
+  box-sizing: border-box;
+  padding: 5% 10% 5% 10%;
 
   background-color: #000;
   border-radius: 10px 10px 10px 10px;
+  text-align: justify;
   color: #fff;
 }
 
@@ -158,5 +160,14 @@ section .column:first-child {
 
 section .column .content .columntitle {
   font-size: 2em;
+  margin-bottom: 5%;
+  font-weight: bold;
+}
+
+/* MISCELLANEOUS
+/******************************************************************************/
+
+.pronunciation {
+  margin-top: -5%;
   margin-bottom: 5%;
 }
