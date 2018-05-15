@@ -161,4 +161,13 @@ section .column:first-child {
 section .column .content .columntitle {
   font-size: 2em;
   margin-bottom: 5%;
+  font-weight: bold;
+}
+
+/* MISCELLANEOUS
+/******************************************************************************/
+
+.pronunciation {
+  margin-top: -5%;
+  margin-bottom: 5%;
 }
