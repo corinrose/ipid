@@ -19,6 +19,7 @@ a {
 
 .button {
   padding: 10px;
+  text-decoration: none;
 
   background-color: #fff;
   border: medium solid #202729;
@@ -163,6 +164,7 @@ section .column:first-child {
   margin-top: 0;
 }
 
+/* all non-button links have underlines */
 section .column .content a {
   text-decoration: underline;
 }
