@@ -155,6 +155,10 @@ section .column .content {
   color: #f7f7f7;
 }
 
+section .column .content.slim {
+  width: 60%;
+}
+
 section.dark .column .content {
   background-color: #f7f7f7;
   color: #202729;
@@ -168,6 +172,11 @@ section .column:first-child {
 section .column .content a {
   text-decoration: underline;
 }
+section .column .content a.button {
+  text-decoration: none;
+  display: table;
+  margin-top: 32px;
+}
 
 section .column .content ul, li {
   list-style-type: none;
@@ -180,8 +189,12 @@ section .column .content ul, li {
 
 section .column .content .columntitle {
   font-size: 2em;
-  margin-bottom: 5%;
   font-weight: bold;
+}
+
+.content > * {
+  display: table;
+  margin-top: 10px;
 }
 
 /* MISCELLANEOUS
