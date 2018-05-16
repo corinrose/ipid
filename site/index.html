@@ -71,14 +71,15 @@ This service is a separate feat from designing the protocol itself. By providing
     <div class="column">
       <div class="content">
         <div class="columntitle">advanced</div>
+        <p>
 To use the full power of IPID, you can host your own profile on your own node. There are a variety of ways to go about this:
-<ul>
-  <li><b>browser plugin</b></li>
+        </p>
+        <ul>
+          <li><b>browser plugin</b></li>
 Using js-ipfs, a javascript implementation of IPFS, nodes can run anywhere that javascript can. The browser plugin <a href="https://github.com/ipfs-shipyard/ipfs-companion">IPFS Companion</a> allows you to host an IPFS node in-browser or remotely (accessing it with an HTTP API). You can even run a node locally as a daemon (as you'll see next) and have the browser plugin act as an intermediary between it and the web. This allows your node to seemlessly interact with the websites you visit should they have IPFS functionality.
-  <li><b>as a daemon</b></li>
+          <li><b>as a daemon</b></li>
 The reference implementation of IPFS is written in Go. Using go-ipfs (or <a href="https://github.com/ipfs/ipfs#protocol-implementations" target="_blank">any other implementation)</a>), you can run an IPFS node as a daemon on your computer locally. On top of that, you can run IPFS Companion in your browser to expose your node just as it would be if it were run in-browser.
-</ul>
-
+        </ul>
       </div>
     </div>
   </section>
