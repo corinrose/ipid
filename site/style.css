@@ -201,6 +201,16 @@ section .column .content .columntitle {
 /******************************************************************************/
 
 .pronunciation {
-  margin-top: -5%;
-  margin-bottom: 5%;
+  margin-top: 0;
+}
+
+.status {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.content.status > * {
+  display: inline-block;
+  vertical-align: middle;
 }
